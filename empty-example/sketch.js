@@ -205,49 +205,46 @@ function secAct(i) {
     drawOneRect(i);
   }
 
+  dOne();
+
 //   lowind = 6;
 //   highind = 7;
 //   midp = 6;
 }
 
-//last action (mid = 52, highligh '52' -- found!)
-function lastAct(i) {
-
-  if (i != 6){
-    //drawYoung(i);
-    shadeB(i);
-  } else {
-    drawOneRect(i);
-  }
-  dOne();
-}
-
+//Congrats
 function dOne() {
   fill(250,175,200, 255);
   textSize(30);
   textAlign(CENTER);
-  text("You found " + keyVal + "!", dw/2, 660);
+  text("You found " + keyVal + "!", dw/2, 450);
 }
 
+//update
 function draw() {
   drawButtons()
   var i;
   for (i = 0; i < array.length; i++) {
     if (act_count == 0) {
       drawOneRect(i);
+      fill(90);
+      triangle(620, 327 + bsize, 640, 275 + bsize, 660, 327 + bsize);
     }
 
     if (act_count == 1) {
       firstAct(i);
+      fill(255);
+      rect(620, 275 + bsize, 40, 52);
+      fill (90);
+      triangle(895, 327 + bsize, 915, 275 + bsize, 935, 327 + bsize);
     }
 
     if (act_count == 2) {
       secAct(i);
-     
-    }
-
-    if (act_count == 3) {
-      lastAct(i);
+      fill(255);
+      rect(895, 275 + bsize, 40, 52);
+      fill(90);
+      triangle(710, 327 + bsize, 730, 275 + bsize, 750, 327 + bsize);
     }
   }
 }
